@@ -1,6 +1,9 @@
 package functions
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
 func PrintChar(str string, asciiRep [][]string) {
 	arr := LineNum(str)
@@ -15,7 +18,12 @@ func PrintChar(str string, asciiRep [][]string) {
 func LineNum(str string) []int {
 	var arr []int
 	for _, char := range str {
-		arr = append(arr, (int(char) - 32))
+		if char >= 32 && char <= 126 {
+			arr = append(arr, (int(char) - 32))
+		} else {
+			fmt.Println("Error: a non ascii character found")
+			os.Exit(1);
+		}	
 	}
 	return arr
 }

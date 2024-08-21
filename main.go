@@ -1,9 +1,9 @@
 package main
 
 import (
+	"ascii-art/functions"
 	"fmt"
 	"os"
-	"ascii-art/functions"
 )
 
 func main() {
@@ -17,4 +17,3 @@ func main() {
 		functions.PrintStr(text, asciiRep)
 	}
 }
-
