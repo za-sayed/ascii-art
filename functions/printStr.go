@@ -2,18 +2,11 @@ package functions
 
 import (
 	"fmt"
-	"os"
 	"strings"
 )
 
 func PrintStr(str string, asciiRep [][]string) {
 	subStrs := SubStrs(str)
-	for _, subStr := range subStrs {
-		if !ValidateASCII(subStr) {
-			fmt.Println("Error: Non-ASCII character detected")
-			os.Exit(1) 
-		}
-	}
 	len := len(subStrs)
 	for index, subStr := range subStrs {
 		if subStr == "\\n" {
@@ -46,11 +39,4 @@ func SubStrs(str string) []string {
 	return result
 }
 
-func ValidateASCII(str string) bool {
-	for _, char := range str {
-		if char < 32 || char > 126 {
-			return false
-		}
-	}
-	return true
-}
+
